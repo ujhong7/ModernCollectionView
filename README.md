@@ -198,6 +198,8 @@ sectionProvider는 각 섹션마다 다른 레이아웃을 설정할 수 있도�
 이 설정을 통해 전체 레이아웃에 대한 공통 설정을 지정합니다.  
 여기서는 interSectionSpacing을 사용하여 섹션 간 간격을 조정합니다.  
 
+<br>
+
 #### 2️⃣ NSCollectionLayoutSection 생성
 NSCollectionLayoutSection은 각 섹션에서의 레이아웃을 정의하는 역할을 합니다.  
 이 코드는 여러 가지 섹션 타입을 정의하고 있으며, 각 섹션마다 다른 레이아웃을 제공하고 있습니다.  
@@ -236,6 +238,7 @@ private func createVerticalSection() -> NSCollectionLayoutSection {
 - 섹션(NSCollectionLayoutSection): 그룹을 담아 수직으로 스크롤 가능한 섹션을 정의하며, 연속적인 스크롤이 가능하게 설정(orthogonalScrollingBehavior = .continuous)됩니다.
 - 헤더(NSCollectionLayoutBoundarySupplementaryItem): 섹션의 상단에 헤더를 추가하여 추가적인 정보나 제목을 보여줍니다.  
 
+<br>
 
 2. createHorizontalSection() - 수평 레이아웃 섹션  
    
@@ -269,6 +272,7 @@ private func createVerticalSection() -> NSCollectionLayoutSection {
  - 그룹: 수평으로 아이템을 배치하고, 각 아이템이 전체 너비의 40%를 차지하도록 설정합니다.  
  - 섹션: 연속적인 가로 스크롤이 가능하도록 구성된 섹션입니다.    
 
+<br>
 
 3. createBannerSection() - 배너 섹션  
     배너와 같은 큰 이미지를 하나의 섹션으로 구성할 때 사용합니다.  
@@ -291,6 +295,7 @@ private func createBannerSection() -> NSCollectionLayoutSection {
   
 - 배너 섹션: 큰 이미지 또는 광고 배너와 같은 요소를 표시하는 데 사용됩니다. 하나의 아이템을 섹션 전체에 배치하며, 그룹 페이징 스크롤이 적용됩니다.    
 
+ <br>
  
 4. createDoubleSection() - 2열 레이아웃 섹션  
 두 개의 아이템을 나란히 배치하는 2열 레이아웃을 구성합니다.  
