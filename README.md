@@ -127,32 +127,26 @@ UICollectionViewCompositionalLayout은 주로 다음 세 가지 요소로 구성
 ### 🟢 구성 요소
 
 1. NSCollectionLayoutItem
-    - 레이아웃의 기본 단위로, 각 셀에 대한 크기와 여백을 정의합니다.
-    
-    
-swift
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-
+    - 레이아웃의 기본 단위로, 각 셀에 대한 크기와 여백을 정의합니다.  
+```Swift
+let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+let item = NSCollectionLayoutItem(layoutSize: itemSize)
+item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+```
     
 2. NSCollectionLayoutGroup
-    - 여러 개의 아이템을 묶는 역할을 하며, 가로/세로 방향으로 그룹을 만들 수 있습니다.
-    
-    
-swift
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.5))
-    let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 2)
-
+    - 여러 개의 아이템을 묶는 역할을 하며, 가로/세로 방향으로 그룹을 만들 수 있습니다.  
+```Swift
+let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.5))
+let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitem: item, count: 2)
+```
     
 3. NSCollectionLayoutSection
-    - 그룹을 모아 하나의 섹션을 구성하며, 섹션 내의 스크롤 동작 등을 제어할 수 있습니다.
-        
-        
-swift
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-
+    - 그룹을 모아 하나의 섹션을 구성하며, 섹션 내의 스크롤 동작 등을 제어할 수 있습니다.     
+```Swift
+let section = NSCollectionLayoutSection(group: group)
+section.orthogonalScrollingBehavior = .continuous
+```
 
 <br>
 
@@ -174,36 +168,35 @@ swift
 
 #### 1️⃣ UICollectionViewCompositionalLayout 생성
 코드에서는 UICollectionViewCompositionalLayout을 createLayout() 메서드로 정의하고 있습니다.  
-(이 레이아웃은 섹션별로 레이아웃이 달라지는 구조를 처리)
+(이 레이아웃은 섹션별로 레이아웃이 달라지는 구조를 처리)  
 
-   
-swift
-    private func createLayout() -> UICollectionViewCompositionalLayout {
+```Swift
+private func createLayout() -> UICollectionViewCompositionalLayout {
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.interSectionSpacing = 14 // 섹션 간의 간격을 14로 설정
     return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
         let section = self?.dataSource?.sectionIdentifier(for: sectionIndex)
-        
-        switch section {
-        case .banner:
-            return self?.createBannerSection()
-        case .horizontal:
-            return self?.createHorizontalSection()
-        case .vertical:
-            return self?.createVerticalSection()
-        default:
-            return self?.createDoubleSection()
-        }
-        
-    }, configuration: config)
+             switch section {
+                case .banner:
+                    return self?.createBannerSection()
+                case .horizontal:
+                    return self?.createHorizontalSection()
+                case .vertical:
+                    return self?.createVerticalSection()
+                default:
+                    return self?.createDoubleSection()
+            }
+        }, configuration: config)
 }
+```
 
 - UICollectionViewCompositionalLayout:  
 이 메서드는 sectionProvider 클로저를 사용하여 각 섹션에 맞는 레이아웃을 정의합니다.  
-sectionProvider는 각 섹션마다 다른 레이아웃을 설정할 수 있도록 유연성을 제공합니다.  
+sectionProvider는 각 섹션마다 다른 레이아웃을 설정할 수 있도록 유연성을 제공합니다.
+
 - UICollectionViewCompositionalLayoutConfiguration:  
 이 설정을 통해 전체 레이아웃에 대한 공통 설정을 지정합니다.  
-여기서는 interSectionSpacing을 사용하여 섹션 간 간격을 조정합니다.
+여기서는 interSectionSpacing을 사용하여 섹션 간 간격을 조정합니다.  
 
 #### 2️⃣ NSCollectionLayoutSection 생성
 NSCollectionLayoutSection은 각 섹션에서의 레이아웃을 정의하는 역할을 합니다.  
@@ -214,8 +207,8 @@ NSCollectionLayoutSection은 각 섹션에서의 레이아웃을 정의하는 �
 
     이 섹션은 수직으로 3개의 아이템을 배치하고, 연속적인 스크롤이 가능하도록 설정된 레이아웃입니다.
      
-swift
-    private func createVerticalSection() -> NSCollectionLayoutSection {
+```Swift
+private func createVerticalSection() -> NSCollectionLayoutSection {
     // 아이템 크기 설정
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -235,20 +228,21 @@ swift
     section.boundarySupplementaryItems = [header]
     
     return section
-    }
+}
+```
 
-   - 아이템(NSCollectionLayoutItem): 각 아이템의 크기를 지정합니다. 여기서는 아이템이 섹션 너비의 100%, 높이의 30%를 차지합니다.  
-   - 그룹(NSCollectionLayoutGroup): 3개의 아이템을 수직으로 배치하는 그룹을 설정합니다.
-   - 섹션(NSCollectionLayoutSection): 그룹을 담아 수직으로 스크롤 가능한 섹션을 정의하며, 연속적인 스크롤이 가능하게 설정(orthogonalScrollingBehavior = .continuous)됩니다.
-   - 헤더(NSCollectionLayoutBoundarySupplementaryItem): 섹션의 상단에 헤더를 추가하여 추가적인 정보나 제목을 보여줍니다.  
+- 아이템(NSCollectionLayoutItem): 각 아이템의 크기를 지정합니다. 여기서는 아이템이 섹션 너비의 100%, 높이의 30%를 차지합니다.  
+- 그룹(NSCollectionLayoutGroup): 3개의 아이템을 수직으로 배치하는 그룹을 설정합니다.
+- 섹션(NSCollectionLayoutSection): 그룹을 담아 수직으로 스크롤 가능한 섹션을 정의하며, 연속적인 스크롤이 가능하게 설정(orthogonalScrollingBehavior = .continuous)됩니다.
+- 헤더(NSCollectionLayoutBoundarySupplementaryItem): 섹션의 상단에 헤더를 추가하여 추가적인 정보나 제목을 보여줍니다.  
 
 
 2. createHorizontalSection() - 수평 레이아웃 섹션  
    
     이 섹션은 수평으로 아이템을 배치하고, 가로 스크롤이 가능하게 구성된 레이아웃입니다.   
      
-swift
-    private func createVerticalSection() -> NSCollectionLayoutSection {
+```Swift
+private func createVerticalSection() -> NSCollectionLayoutSection {
     // 아이템 크기 설정
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.3))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -268,18 +262,19 @@ swift
     section.boundarySupplementaryItems = [header]
     
     return section
-    }
+}
+```
+ 
+ - 아이템: 수평으로 배치할 아이템의 크기와 여백을 정의합니다.  
+ - 그룹: 수평으로 아이템을 배치하고, 각 아이템이 전체 너비의 40%를 차지하도록 설정합니다.  
+ - 섹션: 연속적인 가로 스크롤이 가능하도록 구성된 섹션입니다.    
 
-
-    - 아이템: 수평으로 배치할 아이템의 크기와 여백을 정의합니다.
-    - 그룹: 수평으로 아이템을 배치하고, 각 아이템이 전체 너비의 40%를 차지하도록 설정합니다.
-    - 섹션: 연속적인 가로 스크롤이 가능하도록 구성된 섹션입니다.  
 
 3. createBannerSection() - 배너 섹션  
     배너와 같은 큰 이미지를 하나의 섹션으로 구성할 때 사용합니다.  
     
-swift
-    private func createBannerSection() -> NSCollectionLayoutSection {
+```Swift
+private func createBannerSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
@@ -289,17 +284,19 @@ swift
     let section = NSCollectionLayoutSection(group: group)
     section.orthogonalScrollingBehavior = .groupPaging
         
-     return section
-     }
-  
+    return section
+}
+```
 
-     - 배너 섹션: 큰 이미지 또는 광고 배너와 같은 요소를 표시하는 데 사용됩니다. 하나의 아이템을 섹션 전체에 배치하며, 그룹 페이징 스크롤이 적용됩니다.  
+  
+- 배너 섹션: 큰 이미지 또는 광고 배너와 같은 요소를 표시하는 데 사용됩니다. 하나의 아이템을 섹션 전체에 배치하며, 그룹 페이징 스크롤이 적용됩니다.    
+
  
 4. createDoubleSection() - 2열 레이아웃 섹션  
 두 개의 아이템을 나란히 배치하는 2열 레이아웃을 구성합니다.  
     
-swift
-    private func createDoubleSection() -> NSCollectionLayoutSection {
+```Swift
+private func createDoubleSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 4)
@@ -310,9 +307,10 @@ swift
     let section = NSCollectionLayoutSection(group: group)
     
     return section
-    }
-  
-    - 2열 레이아웃: 두 개의 아이템을 가로로 배치하는 그룹입니다.  
+}  
+```
+
+- 2열 레이아웃: 두 개의 아이템을 가로로 배치하는 그룹입니다.    
 
 
 ---
