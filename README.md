@@ -37,34 +37,34 @@ NSDiffableDataSourceSnapshot은 컬렉션 뷰나 테이블 뷰의 **데이터 �
 ### 🟡 사용방법
 
 1️⃣ Snapshot 생성  
-swift
+```Swift
 var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-
+```
 - 새로운 스냅샷 객체를 생성합니다.  
 여기서 Section과 Item은 각각 섹션과 아이템의 타입을 나타내는 제네릭 타입입니다.
     
 
 2️⃣ 섹션 추가  
-swift
+```Swift
 snapshot.appendSections([section])
-
+```
 - 스냅샷에 섹션을 추가합니다.  
 Section 열거형을 사용하여 다양한 섹션 타입을 정의할 수 있습니다.
 
 3️⃣ 아이템 추가  
-swift
+```Swift
 snapshot.appendItems(items, toSection: section)
-
+```
 - 특정 섹션에 아이템을 추가합니다.  
 이 예제에서는 TV 리스트를 Item.normal(Content(tv: $0)) 형태로 변환하여 추가하고 있습니다.
 
 4️⃣ Snapshot 적용:
-swift
+```Swift
 private var dataSource: UICollectionViewDiffableDataSource<Section,Item>?
-
-swift
+```
+```Swift
 self?.dataSource?.apply(snapshot)
-
+```
 - 생성한 스냅샷을 UICollectionViewDiffableDataSource에 적용하여 
 컬렉션 뷰의 데이터를 업데이트합니다.
 - apply(snapshot) 메서드를 호출하면, 
