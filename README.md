@@ -1,8 +1,7 @@
 # ModernCollectionView
 
 🟡 데이터소스  
-🟢 레이아웃  
-- [여기로 이동](#custom-anchor)
+[🟢 레이아웃](#custom-anchor)
 ---
 
 ### 🟡 Modern Collection View?
