@@ -29,6 +29,8 @@
 		1DB099F72C955702002C02BD /* TVNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099F62C955702002C02BD /* TVNetwork.swift */; };
 		1DB099F92C95570D002C02BD /* MovieNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099F82C95570D002C02BD /* MovieNetwork.swift */; };
 		1DB099FB2C955713002C02BD /* ReviewNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099FA2C955713002C02BD /* ReviewNetwork.swift */; };
+		1DB099FD2C95A227002C02BD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099FC2C95A227002C02BD /* ViewModel.swift */; };
+		1DB099FF2C95A37A002C02BD /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099FE2C95A37A002C02BD /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		1DB099F62C955702002C02BD /* TVNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVNetwork.swift; sourceTree = "<group>"; };
 		1DB099F82C95570D002C02BD /* MovieNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetwork.swift; sourceTree = "<group>"; };
 		1DB099FA2C955713002C02BD /* ReviewNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewNetwork.swift; sourceTree = "<group>"; };
+		1DB099FC2C95A227002C02BD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		1DB099FE2C95A37A002C02BD /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 				1DB099C02C94D97F002C02BD /* AppDelegate.swift */,
 				1DB099C22C94D97F002C02BD /* SceneDelegate.swift */,
 				1DB099C42C94D97F002C02BD /* ViewController.swift */,
+				1DB099FC2C95A227002C02BD /* ViewModel.swift */,
+				1DB099FE2C95A37A002C02BD /* ButtonView.swift */,
 				1DB099E42C955690002C02BD /* Network */,
 				1DB099C62C94D97F002C02BD /* Main.storyboard */,
 				1DB099C92C94D981002C02BD /* Assets.xcassets */,
@@ -212,6 +218,7 @@
 			files = (
 				1DB099ED2C9556CF002C02BD /* Movie.swift in Sources */,
 				1DB099C52C94D97F002C02BD /* ViewController.swift in Sources */,
+				1DB099FF2C95A37A002C02BD /* ButtonView.swift in Sources */,
 				1DB099F12C9556DE002C02BD /* Review.swift in Sources */,
 				1DB099E62C9556A0002C02BD /* Const.swift in Sources */,
 				1DB099EF2C9556D8002C02BD /* MovieResult.swift in Sources */,
@@ -220,6 +227,7 @@
 				1DB099C12C94D97F002C02BD /* AppDelegate.swift in Sources */,
 				1DB099E92C9556BD002C02BD /* TV.swift in Sources */,
 				1DB099C32C94D97F002C02BD /* SceneDelegate.swift in Sources */,
+				1DB099FD2C95A227002C02BD /* ViewModel.swift in Sources */,
 				1DB099FB2C955713002C02BD /* ReviewNetwork.swift in Sources */,
 				1DB099EB2C9556C2002C02BD /* Content.swift in Sources */,
 				1DB099F92C95570D002C02BD /* MovieNetwork.swift in Sources */,
