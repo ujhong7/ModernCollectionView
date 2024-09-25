@@ -10,8 +10,6 @@
 <img src="https://imgur.com/MLT9fBB.gif" width="17%">
 </p>
 
-https://imgur.com/U4ls91C.gif
-
 ## [🟡 데이터소스](#custom-anchor2)  
 `UICollectionViewDiffableDataSource`, `NSDiffableDataSourceSnapshot`  
 컬렉션 뷰에 표시할 데이터를 관리하는 역할을 합니다.  
