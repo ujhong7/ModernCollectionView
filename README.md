@@ -7,7 +7,7 @@
 
 <p align="center" witdh="50%">
 <img src="https://imgur.com/03mTd9e.gif" width="17%">
-<img src="" width="17%">
+<img src="https://imgur.com/MLT9fBB.gif" width="17%">
 </p>
 
 ## [🟡 데이터소스](#custom-anchor2)  
