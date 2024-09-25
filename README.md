@@ -1,13 +1,13 @@
 # ModernCollectionView
 
 ## [🟡 데이터소스](#custom-anchor2)  
-(`UICollectionViewDiffableDataSource`, `NSDiffableDataSourceSnapshot`)  
-이 부분은 컬렉션 뷰에 표시할 데이터를 관리하는 역할을 합니다.  
+`UICollectionViewDiffableDataSource`, `NSDiffableDataSourceSnapshot`  
+컬렉션 뷰에 표시할 데이터를 관리하는 역할을 합니다.  
 섹션과 아이템을 정의하고, 데이터를 스냅샷으로 적용하여 동적으로 업데이트할 수 있습니다.  
 
-## [🟢 레이아웃](#custom-anchor)  
-(`UICollectionViewCompositionalLayout`)
-이 부분은 컬렉션 뷰의 아이템들이 어떻게 배치될지, 레이아웃이 어떻게 구성될지를 관리합니다.  
+## [🟢 레이아웃](#custom-anchor)   
+`UICollectionViewCompositionalLayout`  
+컬렉션 뷰의 아이템들이 어떻게 배치될지, 레이아웃이 어떻게 구성될지를 관리합니다.  
 섹션마다 다른 레이아웃을 적용할 수 있어 유연한 화면 구성이 가능합니다.
 
 <br>
