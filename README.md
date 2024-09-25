@@ -1,6 +1,6 @@
 # ModernCollectionView
 
-🟡 데이터소스  
+🟡 데이터소스 (UICollectionViewDiffableDataSource와 NSDiffableDataSourceSnapshot)  
 [🟢 레이아웃](#custom-anchor)
 ---
 
