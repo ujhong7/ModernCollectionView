@@ -1,7 +1,9 @@
 # ModernCollectionView
 
-🟡 데이터소스 (UICollectionViewDiffableDataSource와 NSDiffableDataSourceSnapshot)  
-[🟢 레이아웃](#custom-anchor)
+🟡 데이터소스  
+(`UICollectionViewDiffableDataSource`, `NSDiffableDataSourceSnapshot`)  
+[🟢 레이아웃](#custom-anchor)  
+(`UICollectionViewCompositionalLayout`)
 ---
 
 ### 🟡 Modern Collection View?
