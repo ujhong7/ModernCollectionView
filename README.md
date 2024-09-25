@@ -6,11 +6,12 @@
 모던 컬렉션 뷰는 `Diffable Data Source`와 `Compositional Layout`이라는 두 가지 핵심 기능을 제공하여 이를 쉽게 처리할 수 있습니다.  
 
 <p align="center" witdh="50%">
-<img src="https://imgur.com/U4ls91C.gif" width="17%">
+<img src="https://imgur.com/U4ls91C.giff" width="17%">
 <img src="https://imgur.com/MLT9fBB.gif" width="17%">
 </p>
+
 https://imgur.com/U4ls91C.gif
-https://imgur.com/MLT9fBB
+
 ## [🟡 데이터소스](#custom-anchor2)  
 `UICollectionViewDiffableDataSource`, `NSDiffableDataSourceSnapshot`  
 컬렉션 뷰에 표시할 데이터를 관리하는 역할을 합니다.  
