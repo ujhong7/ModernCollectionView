@@ -18,15 +18,22 @@
 
 ### 🟡 Modern Collection View?
 
-UICollectionViewDiffableDataSource와 NSDiffableDataSourceSnapshot을 사용하여 컬렉션 뷰를 구현하는 방식입니다.  
+`UICollectionViewDiffableDataSource`와 `NSDiffableDataSourceSnapshot`을 사용하여 컬렉션 뷰를 구현하는 방식입니다.  
 스냅샷을 통해 데이터의 현재 상태를 캡처하고 이를 컬렉션 뷰에 반영함으로써,  
 더 간편하게 뷰의 업데이트와 상태 변화를 관리할 수 있습니다.  
 이 방법은 기존의 데이터 소스보다 효율적이고, 특히 동적인 데이터 업데이트나 복잡한 레이아웃을 구현할 때 유용합니다.  
 
 <br>
 
+### 🟡 UICollectionViewDiffableDataSource?
+
+UICollectionViewDiffableDataSource는 컬렉션 뷰의 데이터 소스를 효율적으로 관리하는 객체로, 데이터를 스냅샷으로 캡처하여 UI와 쉽게 동기화할 수 있게 도와줍니다.  
+이 데이터 소스는 변경 사항을 간단하게 적용할 수 있는 API를 제공하여, 데이터 업데이트 시 보다 직관적이고 간편한 방법으로 UI를 갱신할 수 있습니다.  
+
+<br>
+
 ### 🟡 Snapshot?
-NSDiffableDataSourceSnapshot은 컬렉션 뷰나 테이블 뷰의 **데이터 상태를 스냅샷으로 캡처한 객체**입니다.  
+`NSDiffableDataSourceSnapshot`은 컬렉션 뷰나 테이블 뷰의 **데이터 상태를 스냅샷으로 캡처한 객체**입니다.  
 이 스냅샷은 현재의 섹션과 아이템 구조를 나타내며, 데이터의 변경 사항을 쉽게 관리하고 적용할 수 있도록 도와줍니다.
 
 <br>
@@ -34,7 +41,7 @@ NSDiffableDataSourceSnapshot은 컬렉션 뷰나 테이블 뷰의 **데이터 �
 ### 🟡 왜 Snapshot을 사용?
 
 - 간편한 데이터 관리: 
-기존의 UICollectionViewDataSource와 달리, 
+기존의 `UICollectionViewDataSource`와 달리, 
 스냅샷을 사용하면 데이터의 섹션과 아이템을 명확하게 정의할 수 있습니다.
 - 자동 애니메이션: 
 스냅샷을 적용할 때, 
@@ -69,7 +76,7 @@ Section 열거형을 사용하여 다양한 섹션 타입을 정의할 수 있�
 snapshot.appendItems(items, toSection: section)
 ```
 - 특정 섹션에 아이템을 추가합니다.  
-이 예제에서는 TV 리스트를 Item.normal(Content(tv: $0)) 형태로 변환하여 추가하고 있습니다.
+이 예제에서는 TV 리스트를 `Item.normal(Content(tv: $0))` 형태로 변환하여 추가하고 있습니다.
 
 4️⃣ Snapshot 적용:
 ```Swift
@@ -78,9 +85,9 @@ private var dataSource: UICollectionViewDiffableDataSource<Section,Item>?
 ```Swift
 self?.dataSource?.apply(snapshot)
 ```
-- 생성한 스냅샷을 UICollectionViewDiffableDataSource에 적용하여 
+- 생성한 스냅샷을 `UICollectionViewDiffableDataSource`에 적용하여 
 컬렉션 뷰의 데이터를 업데이트합니다.
-- apply(snapshot) 메서드를 호출하면, 
+- `apply(snapshot)` 메서드를 호출하면, 
 데이터 소스는 현재 스냅샷과 비교하여 필요한 변경 사항을 자동으로 계산하고 UI를 업데이트합니다.
 
 <br>
@@ -98,7 +105,7 @@ self?.dataSource?.apply(snapshot)
 
 ### 🟡 정리  
 - Snapshot이란?
-    - NSDiffableDataSourceSnapshot은 
+    - `NSDiffableDataSourceSnapshot`은 
     컬렉션 뷰나 테이블 뷰의 데이터 상태를 스냅샷 형태로 캡처한 객체
 - Snapshot의 역할
     - 현재 데이터 상태를 정의하고, 변경 사항을 안전하고 효율적으로 적용
@@ -107,7 +114,7 @@ self?.dataSource?.apply(snapshot)
 - Snapshot 적용 과정
     1. 스냅샷 생성
     2. 섹션 및 아이템 추가
-    3. 데이터 소스에 스냅샷 적용 (apply(snapshot))
+    3. 데이터 소스에 스냅샷 적용 `(apply(snapshot))`
 
 
 <br>
