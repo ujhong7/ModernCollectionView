@@ -3,7 +3,8 @@
 모던 컬렉션 뷰(Modern Collection View)는 iOS 13에서 도입된 새로운 방식의 `UICollectionView`로,  
 더 효율적으로 데이터를 관리하고 복잡한 레이아웃을 구현할 수 있도록 설계된 기능입니다.  
 기존의 `UICollectionView`는 데이터 소스와 레이아웃을 수동으로 관리해야 했지만,  
-모던 컬렉션 뷰는 `Diffable Data Source`와 `Compositional Layout`이라는 두 가지 핵심 기능을 제공하여 이를 쉽게 처리할 수 있습니다.  
+모던 컬렉션 뷰는 `Diffable Data Source`와 `Compositional Layout`이라는  
+두 가지 핵심 기능을 제공하여 이를 쉽게 처리할 수 있습니다.  
 
 <p align="center" witdh="50%">
 <img src="https://imgur.com/M2PzeGc.gif" width="17%">
