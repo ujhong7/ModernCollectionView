@@ -16,7 +16,7 @@
 <a name="custom-anchor2"></a>
 <br>
 
-### 🟡 Modern Collection View?
+### 🟡 Modern Collection View
 
 `UICollectionViewDiffableDataSource`와 `NSDiffableDataSourceSnapshot`을 사용하여 컬렉션 뷰를 구현하는 방식입니다.  
 스냅샷을 통해 데이터의 현재 상태를 캡처하고 이를 컬렉션 뷰에 반영함으로써,  
@@ -25,13 +25,14 @@
 
 <br>
 
-### 🟡 UICollectionViewDiffableDataSource?
+### 🟡 UICollectionViewDiffableDataSource
 
 `UICollectionViewDiffableDataSource`는 컬렉션 뷰의 데이터 소스를 효율적으로 관리하는 객체로,  
 데이터를 스냅샷으로 캡처하여 UI와 쉽게 동기화할 수 있게 도와줍니다.   
 이 데이터 소스는 변경 사항을 간단하게 적용할 수 있는 API를 제공하여,  
 데이터 업데이트 시 보다 직관적이고 간편한 방법으로 UI를 갱신할 수 있습니다.  
 
+<br>
 
 기본 구조
 
@@ -79,7 +80,7 @@
 
 <br>
 
-### 🟡 Snapshot?
+### 🟡 Snapshot
 `NSDiffableDataSourceSnapshot`은 컬렉션 뷰나 테이블 뷰의 **데이터 상태를 스냅샷으로 캡처한 객체**입니다.  
 이 스냅샷은 현재의 섹션과 아이템 구조를 나타내며, 데이터의 변경 사항을 쉽게 관리하고 적용할 수 있도록 도와줍니다.
 
@@ -170,7 +171,7 @@ self?.dataSource?.apply(snapshot)
 <a name="custom-anchor"></a>
 <br>
 
-### 🟢 UICollectionViewCompositionalLayout?
+### 🟢 UICollectionViewCompositionalLayout
 
 UICollectionViewCompositionalLayout은 
 복잡한 컬렉션 뷰 레이아웃을 유연하게 구성할 수 있는 새로운 방식입니다.  
