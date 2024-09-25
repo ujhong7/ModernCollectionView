@@ -32,6 +32,52 @@
 이 데이터 소스는 변경 사항을 간단하게 적용할 수 있는 API를 제공하여,  
 데이터 업데이트 시 보다 직관적이고 간편한 방법으로 UI를 갱신할 수 있습니다.  
 
+
+기본 구조
+
+- 섹션 (Section): UICollectionView의 여러 영역을 나타냅니다.  
+  예를 들어, "추천 영상", "인기 영상" 등 다양한 카테고리로 나누어 관리할 수 있습니다.  
+- 아이템 (Item): 각 섹션 내의 개별 요소를 의미합니다. 예를 들어, 각 영상 정보를 담고 있는 셀을 말합니다.  
+
+사용 예시  
+
+- 데이터 소스 정의: UICollectionViewDiffableDataSource를 정의할 때, 섹션과 아이템 타입을 지정합니다.  
+    ```Swift
+    private var dataSource: UICollectionViewDiffableDataSource<Section,Item>?
+    ```
+
+- 섹션 및 아이템 타입 정의: 섹션과 아이템을 나타내는 enum과 구조체를 정의합니다.  
+    ```Swift
+    enum Section: Hashable {
+        case double
+        case banner
+        case horizontal(String) 
+        case vertical(String)
+    }
+
+    enum Item: Hashable {
+        case normal(Content) 
+        case bigImage(Movie)
+        case list(Movie)
+    }
+    ```
+
+- 데이터 업데이트: 데이터 변경 사항을 반영하기 위해 스냅샷을 생성하고, 이를 데이터 소스에 적용합니다.  
+    ```Swift
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+    snapshot.appendSections([.double, .banner, .horizontal("horizontal"), .vertical("vertical")])
+    snapshot.appendItems([item1, item2], toSection: .horizontal("horizontal"))
+    snapshot.appendItems([item3, item4], toSection: .vertical("vertical"))
+    dataSource.apply(snapshot, animatingDifferences: true)
+    ```
+
+장점  
+
+효율성: 데이터 소스 변경 시 애니메이션 효과를 통해 사용자 경험을 개선합니다.  
+간편한 업데이트: 단순한 API를 통해 복잡한 데이터 변경을 쉽게 처리할 수 있습니다.  
+스냅샷 기반: 상태를 스냅샷으로 저장하여 이전 상태와의 차이를 자동으로 관리합니다.  
+  
+
 <br>
 
 ### 🟡 Snapshot?
