@@ -525,29 +525,62 @@ ViewModel의 역할은 네트워크 계층과 View 계층 사이의 데이터 �
 
 ⏺️ 영화 리스트 네트워크 요청 처리
 - 영화 데이터를 가져오는 트리거(`movieTrigger`)가 발생하면,   
-`combineLatest`를 통해 `upcoming`, `popular`, `nowPlaying` 
+`combineLatest`를 통해 `upcoming`, `popular`, `nowPlaying`    
 세 개의 API 결과를 합쳐서 `MovieResult` 객체로 반환합니다.
 - 성공적인 요청 시 `MovieResult`를 `success`로, 에러 발생 시 `failure`로 감쌉니다.
 
 
 <br>
 
-### 🟠
+### 🟠 View에서의 데이터 바인딩 `bindingViewModel()`  
+<img width="620" alt="스크린샷 2024-09-26 오후 3 28 44" src="https://github.com/user-attachments/assets/e24d4655-d809-4627-a20e-2d8a5956e81a">  
 
-
-<br>
-
-### 🟠
-
+View 계층에서는 ViewModel의 Output 데이터를 구독하여 UI를 업데이트합니다.  
+이때 RxSwift의 bind 메서드를 통해 데이터를 UI 컴포넌트에 바인딩합니다.  
 
 <br>
 
-### 🟠
+⏺️ TV 리스트 바인딩  
+<img width="595" alt="스크린샷 2024-09-26 오후 3 29 18" src="https://github.com/user-attachments/assets/02a1cdd9-5fba-4fc3-84ce-e7538de562e7">   
 
+- `ViewModel`의 `tvList`를 구독하여 TV 데이터를 받으면,  
+  이를 `Diffable DataSource`의 스냅샷에 추가하여 UI를 업데이트합니다.
+- 받은 데이터를 `Item` 객체로 변환하여 UI에 맞게 반영합니다.  
 
 <br>
 
-### 🟠
+⏺️ Movie 리스트 바인딩   
+<img width="600" alt="스크린샷 2024-09-26 오후 3 29 58" src="https://github.com/user-attachments/assets/fb31d6aa-00cc-4e6d-b134-7f0832cc5032">    
+movieList를 구독하여 영화 데이터를 받으면,   
+성공 시에는 여러 섹션에 영화를 추가하고, 실패 시에는 에러를 처리합니다.
+
+<br>
+
+### 🟠 사용자 액션 처리 `bindView()`
+<img width="400" alt="스크린샷 2024-09-26 오후 3 37 29" src="https://github.com/user-attachments/assets/2630f1ca-d712-412c-8ec0-ddf929c83e0f">  
+
+사용자의 버튼 클릭 또는 리스트 선택 등 액션을 ViewModel과 연결합니다.
+
+<br> 
+
+### 🟠 정리
+- `ViewModel`은 `Input`(사용자 입력)을 받아서 네트워크 데이터를 처리하고,   
+  `Output`(TV 리스트 및 영화 결과)을 `Observable` 형태로 제공하여    
+  `View`에서 구독할 수 있게 합니다.   
+- 네트워크 요청 및 데이터 가공은 `ViewModel`에서 수행하며,    
+  UI 업데이트는 `View`에서 RxSwift의 `bind`를 통해 처리합니다.   
+- 사용자 인터랙션(버튼 클릭, 아이템 선택 등)과 페이지네이션 같은 기능도    
+  `RxSwift`를 통해 구현되어 있습니다.
+
+
+
+
+
+
+
+
+
+
 
 
 
