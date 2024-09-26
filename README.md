@@ -11,15 +11,24 @@
 <img src="https://imgur.com/U3jlSXe.gif" width="17%">
 </p>
 
-## [🟡 데이터소스](#custom-anchor2)  
+---
+
+### 목차 
+
+[🟡 데이터소스](#custom-anchor2)  
 `UICollectionViewDiffableDataSource`, `NSDiffableDataSourceSnapshot`  
 컬렉션 뷰에 표시할 데이터를 관리하는 역할을 합니다.  
 섹션과 아이템을 정의하고, 데이터를 스냅샷으로 적용하여 동적으로 업데이트할 수 있습니다.  
 
-## [🟢 레이아웃](#custom-anchor)   
+[🟢 레이아웃](#custom-anchor)   
 `UICollectionViewCompositionalLayout`  
 컬렉션 뷰의 아이템들이 어떻게 배치될지, 레이아웃이 어떻게 구성될지를 관리합니다.  
 섹션마다 다른 레이아웃을 적용할 수 있어 유연한 화면 구성이 가능합니다.
+
+[🟣 MVVM + RxSwift](#custom-anchor3)  
+asd  
+
+[🟠 네트워킹 설계](#custom-anchor4)  
 
 <br>
 
@@ -33,8 +42,6 @@
 데이터를 스냅샷으로 캡처하여 UI와 쉽게 동기화할 수 있게 도와줍니다.   
 이 데이터 소스는 변경 사항을 간단하게 적용할 수 있는 API를 제공하여,  
 데이터 업데이트 시 보다 직관적이고 간편한 방법으로 UI를 갱신할 수 있습니다.  
-
-<br>
 
 #### 기본 구조
 
@@ -390,3 +397,36 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 
 
 ---
+
+<a name="custom-anchor3"></a>
+
+<br>
+
+
+### 🟣 MVVM+RxSwift 네트워킹 구현
+
+asdasdasdasd
+
+
+---
+
+<a name="custom-anchor4"></a>
+
+<br>
+
+
+### 🟠 네트워킹 구현
+
+asdasdasdasd
+
+
+
+
+
+
+
+
+
+
+
+
