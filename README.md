@@ -25,10 +25,12 @@
 컬렉션 뷰의 아이템들이 어떻게 배치될지, 레이아웃이 어떻게 구성될지를 관리합니다.  
 섹션마다 다른 레이아웃을 적용할 수 있어 유연한 화면 구성이 가능합니다.
 
-[🟣 MVVM + RxSwift](#custom-anchor3)  
-asd  
+[🟣 네트워킹 설계](#custom-anchor3)  
+`RxSwift`, `RxAlamofire` 비동기 네트워크 요청을 처리하고,  
+각 API에 맞는 네트워크 객체를 모듈화하여 쉽게 재사용할 수 있도록 설계되었습니다.  
+`NetworkProvider`를 통해 네트워크 계층을 관리하며, 제네릭을 사용해 확장성을 높였습니다.  
 
-[🟠 네트워킹 설계](#custom-anchor4)  
+[🟠 MVVM + RxSwift](#custom-anchor4)  
 
 <br>
 
@@ -403,11 +405,10 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 <br>
 
 
-### 🟣 MVVM+RxSwift 네트워킹 구현
+### 🟣 확장성 있는 네트워크 설계
 
 `RxSwift`와 `RxAlamofire`를 사용하여 비동기적으로 데이터를 요청하고,   
-이를 Observable로 처리하는 방식으로 네트워크 계층을 설계하였습니다.  
-(`TMDB` API 사용)  
+이를 Observable로 처리하는 방식으로 네트워크 계층을 설계하였습니다. (`TMDB` API 사용)  
 
 <br>
 
@@ -474,7 +475,7 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 <br>
 
 
-### 🟠 네트워킹 구현
+### 🟠 MVVM+RxSwift 네트워킹 구현
 
 asdasdasdasd
 
