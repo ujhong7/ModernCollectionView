@@ -476,7 +476,7 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 
 <br>
 
-### 🟠 ViewModel에서의 네트워크 처리
+### 🟠 `ViewModel`에서의 네트워크 처리
 
 ViewModel의 역할은 네트워크 계층과 View 계층 사이의 데이터 흐름을 관리하는 것입니다.  
 네트워크로부터 데이터를 가져와 가공한 후, 이를 View로 전달하여 UI 업데이트에 사용됩니다.  
@@ -528,7 +528,7 @@ ViewModel의 역할은 네트워크 계층과 View 계층 사이의 데이터 �
 
 <br>
 
-### 🟠 View에서의 데이터 바인딩 `bindingViewModel()`  
+### 🟠 `View`에서의 데이터 바인딩 `bindingViewModel()`  
 <img width="620" alt="스크린샷 2024-09-26 오후 3 28 44" src="https://github.com/user-attachments/assets/e24d4655-d809-4627-a20e-2d8a5956e81a">  
 
 View 계층에서는 ViewModel의 Output 데이터를 구독하여 UI를 업데이트합니다.  
