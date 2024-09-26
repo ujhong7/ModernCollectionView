@@ -30,7 +30,9 @@
 각 API에 맞는 네트워크 객체를 모듈화하여 쉽게 재사용할 수 있도록 설계되었습니다.  
 `NetworkProvider`를 통해 네트워크 계층을 관리하며, 제네릭을 사용해 확장성을 높였습니다.  
 
-[🟠 MVVM + RxSwift](#custom-anchor4)  
+[🟠 MVVM 네트워킹 구현](#custom-anchor4)  
+ViewModel에서 사용자 입력을 받아 네트워크 요청을 처리하고,   
+RxSwift를 사용해 데이터 흐름을 View와 연결하여 UI 업데이트를 효율적으로 관리합니다.
 
 <br>
 
@@ -471,12 +473,6 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 ---
 
 <a name="custom-anchor4"></a>
-
-<br>
-
-
-### 🟠 MVVM+RxSwift 네트워킹 구현
-
 
 <br>
 
