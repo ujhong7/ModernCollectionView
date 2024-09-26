@@ -405,8 +405,67 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 
 ### 🟣 MVVM+RxSwift 네트워킹 구현
 
-asdasdasdasd
+`RxSwift`와 `RxAlamofire`를 사용하여 비동기적으로 데이터를 요청하고,   
+이를 Observable로 처리하는 방식으로 네트워크 계층을 설계하였습니다.  
+(`TMDB` API 사용)  
 
+<br>
+
+### 🟣 `NetworkProvider`
+<img width="400" alt="스크린샷 2024-09-26 오후 2 23 22" src="https://github.com/user-attachments/assets/1acb5c8f-cf66-460d-9d8e-9aa34ab7e4fc">   
+
+- **역할**: 
+  네트워크 계층을 쉽게 관리하기 위해 `TVNetwork`, `MovieNetwork`, `ReviewNetwork`와 같은  
+  구체적인 네트워크 객체를 생성하는 팩토리 클래스입니다.
+- **주요 기능**: 
+  각 모델에 맞는 네트워크 객체를 생성하여,  
+  API 요청을 모듈화하고 쉽게 재사용할 수 있도록 설계되었습니다.
+
+<br>
+
+### 🟣 `Network<T: Decodable>`
+<img width="600" alt="스크린샷 2024-09-26 오후 2 26 47" src="https://github.com/user-attachments/assets/b0197e23-17b9-4e1b-9fa2-8d1ff9f79c37">  
+
+- **역할**:
+    실제로 API와 통신하여 데이터를 받아오는 역할을 담당하는 제네릭 네트워크 클래스입니다.  
+- **주요 기능**:  
+    - API 요청을 처리하고, `RxSwift`의 `Observable`로 결과를 반환합니다.
+    - URL을 구성하고, Alamofire를 사용해 데이터를 가져옵니다.
+    - 데이터를 `JSONDecoder()`를 사용하여 디코딩하며, 
+    이를 호출하는 쪽에서 제네릭으로 처리할 수 있도록 설계되었습니다.
+- **사용 기술**:
+    - `RxSwift`: 비동기적으로 데이터 스트림을 처리하기 위한 Observable 패턴을 사용.
+    - `RxAlamofire`: 네트워크 요청을 쉽게 처리하고 RxSwift와 통합.
+
+<br>
+
+### 🟣 `TVNetwork`
+<img width="460" alt="스크린샷 2024-09-26 오후 2 30 49" src="https://github.com/user-attachments/assets/b889040b-e821-4481-876b-b2aca025693c">
+
+- **역할**:
+  `TV` 관련 API 요청을 처리하는 클래스입니다.
+- **주요 기능**:
+    - `getTopRatedList(page:)`: 인기 있는 TV 프로그램 목록을 가져오는 함수.
+    - `getQueriedList(page:query:)`: 특정 쿼리를 이용해 TV 프로그램을 검색하는 함수.
+
+<br>
+
+### 🟣 네트워크 호출 흐름
+- `NetworkProvider`에서 `TVNetwork`, `MovieNetwork`, `ReviewNetwork` 객체를 생성합니다.
+- 각각의 네트워크 클래스는 `Network<T>` 클래스를 사용하여 요청을 처리하며,  
+  API 응답을 제네릭 모델로 디코딩하여 Observable로 반환합니다.
+- 이 방식은 코드 재사용성을 높이고, 새로운 네트워크 요청을 쉽게 확장할 수 있는 구조를 제공합니다.
+
+### 🟣 정리
+- **비동기 처리**:  
+  `RxSwift`를 사용하여 비동기적으로 API 데이터를 처리함으로써 UI와 데이터를 간단하게 연동할 수 있습니다.
+- **확장성**:  
+  `Network` 클래스는 제네릭을 사용해 다양한 모델 타입을 처리할 수 있도록 확장성이 좋게 설계되었습니다.
+- **모듈화**:  
+  `TVNetwork`, `MovieNetwork`, `ReviewNetwork` 같은 클래스는 각각의 데이터 타입에 특화된 네트워크 요청을 처리하며,  
+  서로 독립적이면서도 공통된 `Network` 클래스를 사용해 코드 중복을 최소화했습니다.
+
+<br>
 
 ---
 
@@ -419,7 +478,7 @@ asdasdasdasd
 
 asdasdasdasd
 
-
+### 🟠
 
 
 
