@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D02446C2CA5BCC100650293 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1D02446B2CA5BCC100650293 /* SnapKit */; };
+		1D02446F2CA5BCD000650293 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1D02446E2CA5BCD000650293 /* Kingfisher */; };
+		1D0244722CA5BCE900650293 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1D0244712CA5BCE900650293 /* RxCocoa */; };
+		1D0244742CA5BCE900650293 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1D0244732CA5BCE900650293 /* RxSwift */; };
+		1D0244772CA5BCF900650293 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1D0244762CA5BCF900650293 /* RxAlamofire */; };
 		1DB099C12C94D97F002C02BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099C02C94D97F002C02BD /* AppDelegate.swift */; };
 		1DB099C32C94D97F002C02BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099C22C94D97F002C02BD /* SceneDelegate.swift */; };
 		1DB099C52C94D97F002C02BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099C42C94D97F002C02BD /* ViewController.swift */; };
 		1DB099C82C94D97F002C02BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1DB099C72C94D97F002C02BD /* Base */; };
 		1DB099CA2C94D981002C02BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DB099C92C94D981002C02BD /* Assets.xcassets */; };
 		1DB099CD2C94D981002C02BD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1DB099CC2C94D981002C02BD /* Base */; };
-		1DB099D62C9554DC002C02BD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1DB099D52C9554DC002C02BD /* Kingfisher */; };
-		1DB099D92C955520002C02BD /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1DB099D82C955520002C02BD /* RxAlamofire */; };
-		1DB099DC2C95553E002C02BD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1DB099DB2C95553E002C02BD /* SnapKit */; };
-		1DB099E12C9555AB002C02BD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1DB099E02C9555AB002C02BD /* RxCocoa */; };
-		1DB099E32C9555AB002C02BD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1DB099E22C9555AB002C02BD /* RxSwift */; };
 		1DB099E62C9556A0002C02BD /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099E52C9556A0002C02BD /* Const.swift */; };
 		1DB099E92C9556BD002C02BD /* TV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099E82C9556BD002C02BD /* TV.swift */; };
 		1DB099EB2C9556C2002C02BD /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099EA2C9556C2002C02BD /* Content.swift */; };
@@ -62,11 +62,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DB099DC2C95553E002C02BD /* SnapKit in Frameworks */,
-				1DB099D62C9554DC002C02BD /* Kingfisher in Frameworks */,
-				1DB099E32C9555AB002C02BD /* RxSwift in Frameworks */,
-				1DB099E12C9555AB002C02BD /* RxCocoa in Frameworks */,
-				1DB099D92C955520002C02BD /* RxAlamofire in Frameworks */,
+				1D0244722CA5BCE900650293 /* RxCocoa in Frameworks */,
+				1D02446F2CA5BCD000650293 /* Kingfisher in Frameworks */,
+				1D0244742CA5BCE900650293 /* RxSwift in Frameworks */,
+				1D0244772CA5BCF900650293 /* RxAlamofire in Frameworks */,
+				1D02446C2CA5BCC100650293 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,11 +149,11 @@
 			);
 			name = ModernCollectionView;
 			packageProductDependencies = (
-				1DB099D52C9554DC002C02BD /* Kingfisher */,
-				1DB099D82C955520002C02BD /* RxAlamofire */,
-				1DB099DB2C95553E002C02BD /* SnapKit */,
-				1DB099E02C9555AB002C02BD /* RxCocoa */,
-				1DB099E22C9555AB002C02BD /* RxSwift */,
+				1D02446B2CA5BCC100650293 /* SnapKit */,
+				1D02446E2CA5BCD000650293 /* Kingfisher */,
+				1D0244712CA5BCE900650293 /* RxCocoa */,
+				1D0244732CA5BCE900650293 /* RxSwift */,
+				1D0244762CA5BCF900650293 /* RxAlamofire */,
 			);
 			productName = ModernCollectionView;
 			productReference = 1DB099BD2C94D97F002C02BD /* ModernCollectionView.app */;
@@ -184,10 +184,10 @@
 			);
 			mainGroup = 1DB099B42C94D97F002C02BD;
 			packageReferences = (
-				1DB099D42C9554DC002C02BD /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				1DB099D72C955520002C02BD /* XCRemoteSwiftPackageReference "RxAlamofire" */,
-				1DB099DA2C95553E002C02BD /* XCRemoteSwiftPackageReference "SnapKit" */,
-				1DB099DF2C9555AB002C02BD /* XCRemoteSwiftPackageReference "RxSwift" */,
+				1D02446A2CA5BCC100650293 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				1D02446D2CA5BCD000650293 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1D0244702CA5BCE900650293 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				1D0244752CA5BCF900650293 /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 			);
 			productRefGroup = 1DB099BE2C94D97F002C02BD /* Products */;
 			projectDirPath = "";
@@ -464,23 +464,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1DB099D42C9554DC002C02BD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.12.0;
-			};
-		};
-		1DB099D72C955520002C02BD /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
-			};
-		};
-		1DB099DA2C95553E002C02BD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		1D02446A2CA5BCC100650293 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -488,41 +472,57 @@
 				minimumVersion = 5.7.1;
 			};
 		};
-		1DB099DF2C9555AB002C02BD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		1D02446D2CA5BCD000650293 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.3;
+			};
+		};
+		1D0244702CA5BCE900650293 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.7.1;
+				minimumVersion = 5.0.0;
+			};
+		};
+		1D0244752CA5BCF900650293 /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1DB099D52C9554DC002C02BD /* Kingfisher */ = {
+		1D02446B2CA5BCC100650293 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1DB099D42C9554DC002C02BD /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		1DB099D82C955520002C02BD /* RxAlamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1DB099D72C955520002C02BD /* XCRemoteSwiftPackageReference "RxAlamofire" */;
-			productName = RxAlamofire;
-		};
-		1DB099DB2C95553E002C02BD /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1DB099DA2C95553E002C02BD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 1D02446A2CA5BCC100650293 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		1DB099E02C9555AB002C02BD /* RxCocoa */ = {
+		1D02446E2CA5BCD000650293 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1DB099DF2C9555AB002C02BD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 1D02446D2CA5BCD000650293 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		1D0244712CA5BCE900650293 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D0244702CA5BCE900650293 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		1DB099E22C9555AB002C02BD /* RxSwift */ = {
+		1D0244732CA5BCE900650293 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1DB099DF2C9555AB002C02BD /* XCRemoteSwiftPackageReference "RxSwift" */;
+			package = 1D0244702CA5BCE900650293 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		1D0244762CA5BCF900650293 /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D0244752CA5BCF900650293 /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
