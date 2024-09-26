@@ -477,10 +477,77 @@ private func createDoubleSection() -> NSCollectionLayoutSection {
 
 ### 🟠 MVVM+RxSwift 네트워킹 구현
 
-asdasdasdasd
+
+<br>
+
+### 🟠 ViewModel에서의 네트워크 처리
+
+ViewModel의 역할은 네트워크 계층과 View 계층 사이의 데이터 흐름을 관리하는 것입니다.  
+네트워크로부터 데이터를 가져와 가공한 후, 이를 View로 전달하여 UI 업데이트에 사용됩니다.  
+
+⏺️ **`Input` 구조체**  
+<img width="350" alt="스크린샷 2024-09-26 오후 2 54 42" src="https://github.com/user-attachments/assets/733ccbba-3344-4402-a85f-2680144f0fb8">  
+
+- `Input` 구조체는 `View`로부터 발생하는 사용자 입력을 담습니다.  
+  예를 들어, `keyword`는 사용자가 검색창에 입력한 문자열이고,   
+  `tvTrigger`는  TV 콘텐츠를 요청할 때 발생하는 트리거이며,   
+  `movieTrigger`는 영화 데이터를 요청할 때 발생하는 트리거입니다.   
+- 이 구조체는 `View`가 데이터를 요청하거나 액션을 발생시킬 때 필요한 데이터 흐름을 정의합니다.  
+<br>
+
+⏺️ **`Output` 구조체**   
+<img width="400" alt="스크린샷 2024-09-26 오후 2 54 54" src="https://github.com/user-attachments/assets/fd1cdb06-7172-4ce0-b5c5-eccfae379d90">  
+
+- `Output` 구조체는 `ViewModel`에서 처리한 데이터를 `View`로 전달하는 역할을 합니다.    
+  여기서는 TV 목록과 영화 목록 데이터를 `Observable` 형태로 제공하여   
+  `View`에서 구독(bind)할 수 있게 합니다.   
+<br>
+
+⏺️ **`transform(input:)` 메서드**   
+<img width="800" alt="스크린샷 2024-09-26 오후 2 58 31" src="https://github.com/user-attachments/assets/1a30684b-6353-4e69-befc-4d342a698b48">   
+
+- `transform(input:)` 메서드는 `Input` 데이터를 받아서 이를 네트워크 호출로 변환하고,    
+  처리된 데이터를 `Output`으로 반환합니다.
+- 이 메서드에서 네트워크 요청을 관리하고,    
+  그 결과를 `Observable`로 반환하여 `View`에서 구독(bind)하도록 만듭니다.
+
+<br>
+
+⏺️ TV 리스트 네트워크 요청 처리
+- `Observable.combineLatest`로 `tvTrigger`와 `keyword`를 결합하여 
+페이지 번호와 키워드를 함께 처리합니다.
+- `flatMapLatest`로 네트워크 요청을 수행하며, 
+첫 번째 페이지일 경우 리스트를 초기화하고, 키워드가 있을 때와 없을 때 다른 API를 호출합니다.
+- 결과로 받은 `TV` 목록을 기존 리스트에 추가하여 반환합니다.
+
+
+<br>
+
+⏺️ 영화 리스트 네트워크 요청 처리
+- 영화 데이터를 가져오는 트리거(`movieTrigger`)가 발생하면, 
+`combineLatest`를 통해 `upcoming`, `popular`, `nowPlaying` 
+세 개의 API 결과를 합쳐서 `MovieResult` 객체로 반환합니다.
+- 성공적인 요청 시 `MovieResult`를 `success`로, 에러 발생 시 `failure`로 감쌉니다.
+
+
+<br>
 
 ### 🟠
 
+
+<br>
+
+### 🟠
+
+
+<br>
+
+### 🟠
+
+
+<br>
+
+### 🟠
 
 
 
