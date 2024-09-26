@@ -524,7 +524,7 @@ ViewModel의 역할은 네트워크 계층과 View 계층 사이의 데이터 �
 <br>
 
 ⏺️ 영화 리스트 네트워크 요청 처리
-- 영화 데이터를 가져오는 트리거(`movieTrigger`)가 발생하면, 
+- 영화 데이터를 가져오는 트리거(`movieTrigger`)가 발생하면,   
 `combineLatest`를 통해 `upcoming`, `popular`, `nowPlaying` 
 세 개의 API 결과를 합쳐서 `MovieResult` 객체로 반환합니다.
 - 성공적인 요청 시 `MovieResult`를 `success`로, 에러 발생 시 `failure`로 감쌉니다.
