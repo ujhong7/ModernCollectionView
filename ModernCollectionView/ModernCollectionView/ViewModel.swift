@@ -35,7 +35,7 @@ class ViewModel {
         let movieList: Observable<Result<MovieResult, Error>>
     }
     
-    func transtorm(input: Input) -> Output {
+    func transform(input: Input) -> Output {
         
         let tvList = Observable.combineLatest(input.tvTrigger, input.keyword)
             .flatMapLatest { [unowned self] page, keyword in
@@ -53,15 +53,17 @@ class ViewModel {
             }
         
         let movieResult = input.movieTrigger.flatMap { [unowned self] _ -> Observable<Result<MovieResult, Error>> in
-            return Observable.combineLatest(<#T##source1: ObservableType##ObservableType#>, <#T##source2: ObservableType##ObservableType#>, <#T##source3: ObservableType##ObservableType#>) {
-                
+            return Observable.combineLatest(self.movieNetwork.getUpComingList(), self.movieNetwork.getPopularList(), self.movieNetwork.getNowPlayingList()) {
+                upcoming, popular, nowPlaying -> Result<MovieResult, Error> in
+                self.currentContentType = .movie
+                return .success(MovieResult(upcoming: upcoming, popular: popular, nowPlaying: nowPlaying))
             }.catchError { error in
                 print(error)
                 return Observable.just(.failure(error))
             }
         }
         
-        return Output(tvList: <#T##Observable<[TV]>#>, movieList: <#T##Observable<Result<MovieResult, any Error>>#>)
+        return Output(tvList: tvList, movieList: movieResult)
     }
     
 }
