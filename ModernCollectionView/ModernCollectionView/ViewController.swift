@@ -100,13 +100,108 @@ class ViewController: UIViewController {
                 return keyword
             })
         
-        let input = ViewModel.
-
-//        let output =
+        let input = ViewModel.Input(keyword: keyword,
+                                    tvTrigger: tvTrigger.asObservable(),
+                                    movieTrigger: movieTrigger.asObservable())
         
+        let output = viewModel.transform(input: input)
+        
+        output.tvList.bind { [weak self] tvList in
+            print("TV List: \(tvList)")
+            var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
+            let items = tvList.map{ Item.normal(Content(tv: $0))}
+            let section = Section.double
+            snapshot.appendSections([section])
+            snapshot.appendItems(items, toSection: section)
+            self?.dataSource?.apply(snapshot)
+        }.disposed(by: disposeBag)
+        
+        output.movieList.bind { [weak self] result in
+            print("Movie Result: \(result)")
+            
+            switch result {
+            case .success(let movieResult):
+                var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
+                
+                let bigImageList = movieResult.nowPlaying.results.map { movie in
+                    return Item.bigImage(movie)
+                }
+                let bannerSection = Section.banner
+                snapshot.appendSections([bannerSection])
+                snapshot.appendItems(bigImageList, toSection: bannerSection)
+                
+                let horizontalSection = Section.horizontal("Popular Movies")
+                let normalList = movieResult.popular.results.map { movie in
+                    return Item.normal(Content(movie: movie))
+                }
+                snapshot.appendSections([horizontalSection])
+                snapshot.appendItems(normalList, toSection: horizontalSection)
+                
+                
+                let verticalSection = Section.vertical("Upcoming Movies")
+                let itemList = movieResult.upcoming.results.map { movie in
+                    return Item.list(movie)
+                }
+                snapshot.appendSections([verticalSection])
+                snapshot.appendItems(itemList, toSection: verticalSection)
+                
+                self?.dataSource?.apply(snapshot)
+            case .failure(let error):
+                // Toast dialog
+                print(error)
+            }
+            
+        }.disposed(by: disposeBag)
     }
     
     private func bindView() {
+        buttonView.tvButton.rx.tap.bind { [weak self] in
+            self?.textfield.isHidden = false
+            self?.tvTrigger.onNext(1)
+        }.disposed(by: disposeBag)
+        
+        buttonView.movieButton.rx.tap.bind { [weak self] in
+            self?.textfield.isHidden = false
+            self?.movieTrigger.onNext(Void())
+        }.disposed(by: disposeBag)
+        
+        // 화면전환
+        collectionView.rx.itemSelected.bind { [weak self] indexPath in
+            print(indexPath)
+            let item = self?.dataSource?.itemIdentifier(for: indexPath)
+            switch item {
+            case .normal(let content):
+                print(content)
+                let navigationController = UINavigationController()
+                let viewController = ReviewViewController(id: content.id, contentType: content.type)
+                navigationController.viewControllers = [viewController]
+                self?.present(navigationController, animated: true)
+            case .list(let movie):
+                print(movie)
+                
+            default:
+                print("default")
+            }
+        }.disposed(by: disposeBag)
+        
+        // 페이지 네이션
+        collectionView.rx.prefetchItems
+            .filter ({ [weak self] _ in
+                return self?.viewModel.currentContentType == .tv
+            })
+            .bind { [weak self] indexPath in
+                print(indexPath)
+                let snapshot = self?.dataSource?.snapshot()
+                guard let lastIndexPath = indexPath.last,
+                      let section = self?.dataSource?.sectionIdentifier(for: lastIndexPath.section),
+                      let itemCount = snapshot?.numberOfItems(inSection: section),
+                      let currentPage = try? self?.tvTrigger.value() else { return }
+                if lastIndexPath.row > itemCount - 4 {
+                    self?.tvTrigger.onNext(currentPage + 1)
+                }
+            }.disposed(by: disposeBag)
+    }
+    
     private func createLayout() -> UICollectionViewCompositionalLayout {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 14
