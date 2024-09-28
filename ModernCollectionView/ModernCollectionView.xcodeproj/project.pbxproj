@@ -12,6 +12,14 @@
 		1D0244722CA5BCE900650293 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1D0244712CA5BCE900650293 /* RxCocoa */; };
 		1D0244742CA5BCE900650293 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1D0244732CA5BCE900650293 /* RxSwift */; };
 		1D0244772CA5BCF900650293 /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1D0244762CA5BCF900650293 /* RxAlamofire */; };
+		1D02447A2CA5C54B00650293 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0244792CA5C54A00650293 /* ReviewViewController.swift */; };
+		1D02447C2CA5C56A00650293 /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02447B2CA5C56A00650293 /* ReviewViewModel.swift */; };
+		1D0244842CA5CDE500650293 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02447E2CA5CDE500650293 /* ListCollectionViewCell.swift */; };
+		1D0244852CA5CDE500650293 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D02447F2CA5CDE500650293 /* HeaderView.swift */; };
+		1D0244862CA5CDE500650293 /* NormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0244802CA5CDE500650293 /* NormalCollectionViewCell.swift */; };
+		1D0244872CA5CDE500650293 /* ReviewHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0244812CA5CDE500650293 /* ReviewHeaderCollectionViewCell.swift */; };
+		1D0244882CA5CDE500650293 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0244822CA5CDE500650293 /* ReviewCollectionViewCell.swift */; };
+		1D0244892CA5CDE500650293 /* BigImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0244832CA5CDE500650293 /* BigImageCollectionViewCell.swift */; };
 		1DB099C12C94D97F002C02BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099C02C94D97F002C02BD /* AppDelegate.swift */; };
 		1DB099C32C94D97F002C02BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099C22C94D97F002C02BD /* SceneDelegate.swift */; };
 		1DB099C52C94D97F002C02BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB099C42C94D97F002C02BD /* ViewController.swift */; };
@@ -34,6 +42,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D0244792CA5C54A00650293 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		1D02447B2CA5C56A00650293 /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		1D02447E2CA5CDE500650293 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D02447F2CA5CDE500650293 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		1D0244802CA5CDE500650293 /* NormalCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D0244812CA5CDE500650293 /* ReviewHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D0244822CA5CDE500650293 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D0244832CA5CDE500650293 /* BigImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		1DB099BD2C94D97F002C02BD /* ModernCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB099C02C94D97F002C02BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DB099C22C94D97F002C02BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +89,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D0244782CA5C53600650293 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				1D0244792CA5C54A00650293 /* ReviewViewController.swift */,
+				1D02447B2CA5C56A00650293 /* ReviewViewModel.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		1D02447D2CA5CCB600650293 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1D0244832CA5CDE500650293 /* BigImageCollectionViewCell.swift */,
+				1D02447F2CA5CDE500650293 /* HeaderView.swift */,
+				1D02447E2CA5CDE500650293 /* ListCollectionViewCell.swift */,
+				1D0244802CA5CDE500650293 /* NormalCollectionViewCell.swift */,
+				1D0244822CA5CDE500650293 /* ReviewCollectionViewCell.swift */,
+				1D0244812CA5CDE500650293 /* ReviewHeaderCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		1DB099B42C94D97F002C02BD = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +133,8 @@
 				1DB099C02C94D97F002C02BD /* AppDelegate.swift */,
 				1DB099C22C94D97F002C02BD /* SceneDelegate.swift */,
 				1DB099C42C94D97F002C02BD /* ViewController.swift */,
+				1D0244782CA5C53600650293 /* Review */,
+				1D02447D2CA5CCB600650293 /* Cells */,
 				1DB099FC2C95A227002C02BD /* ViewModel.swift */,
 				1DB099FE2C95A37A002C02BD /* ButtonView.swift */,
 				1DB099E42C955690002C02BD /* Network */,
@@ -220,14 +260,22 @@
 				1DB099C52C94D97F002C02BD /* ViewController.swift in Sources */,
 				1DB099FF2C95A37A002C02BD /* ButtonView.swift in Sources */,
 				1DB099F12C9556DE002C02BD /* Review.swift in Sources */,
+				1D0244882CA5CDE500650293 /* ReviewCollectionViewCell.swift in Sources */,
 				1DB099E62C9556A0002C02BD /* Const.swift in Sources */,
+				1D02447A2CA5C54B00650293 /* ReviewViewController.swift in Sources */,
 				1DB099EF2C9556D8002C02BD /* MovieResult.swift in Sources */,
 				1DB099F52C9556F5002C02BD /* Network.swift in Sources */,
 				1DB099F72C955702002C02BD /* TVNetwork.swift in Sources */,
 				1DB099C12C94D97F002C02BD /* AppDelegate.swift in Sources */,
+				1D0244862CA5CDE500650293 /* NormalCollectionViewCell.swift in Sources */,
+				1D0244872CA5CDE500650293 /* ReviewHeaderCollectionViewCell.swift in Sources */,
+				1D02447C2CA5C56A00650293 /* ReviewViewModel.swift in Sources */,
+				1D0244892CA5CDE500650293 /* BigImageCollectionViewCell.swift in Sources */,
 				1DB099E92C9556BD002C02BD /* TV.swift in Sources */,
+				1D0244842CA5CDE500650293 /* ListCollectionViewCell.swift in Sources */,
 				1DB099C32C94D97F002C02BD /* SceneDelegate.swift in Sources */,
 				1DB099FD2C95A227002C02BD /* ViewModel.swift in Sources */,
+				1D0244852CA5CDE500650293 /* HeaderView.swift in Sources */,
 				1DB099FB2C955713002C02BD /* ReviewNetwork.swift in Sources */,
 				1DB099EB2C9556C2002C02BD /* Content.swift in Sources */,
 				1DB099F92C95570D002C02BD /* MovieNetwork.swift in Sources */,

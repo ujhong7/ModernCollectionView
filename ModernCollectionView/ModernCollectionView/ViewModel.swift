@@ -15,7 +15,7 @@ class ViewModel {
     private let tvNetwork: TVNetwork
     private let movieNetwork: MovieNetwork
     
-    private var currentContentType: ContentType = .tv
+    public var currentContentType: ContentType = .tv
     private var currentTVList: [TV] = []
     
     init() {

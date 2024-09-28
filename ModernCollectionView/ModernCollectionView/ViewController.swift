@@ -23,7 +23,7 @@ fileprivate enum Item: Hashable {
 }
 
 class ViewController: UIViewController {
-
+    
     let disposeBag = DisposeBag()
     let buttonView = ButtonView()
     
@@ -64,7 +64,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        setUI()
+        setDataSource()
+        bindViewModel()
+        bindView()
+        tvTrigger.onNext(1)
     }
     
     private func setUI() {
@@ -93,9 +97,8 @@ class ViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        
         let keyword = textfield.rx.text.orEmpty.distinctUntilChanged()
-            .debounce(.microseconds(200), scheduler: MainScheduler.instance).map ({ [weak self] keyword in
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance).map({ [weak self] keyword in
                 self?.tvTrigger.onNext(1)
                 return keyword
             })
@@ -277,8 +280,39 @@ class ViewController: UIViewController {
         return section
     }
     
+    private func setDataSource() {
+        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            switch item {
+            case .normal(let contentData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NormalCollectionViewCell.id, for: indexPath) as? NormalCollectionViewCell
+                cell?.configure(title: contentData.title, review: contentData.vote, desc: contentData.overview, imageURL: contentData.posterURL)
+                return cell
+            case .bigImage(let movieData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BigImageCollectionViewCell.id, for: indexPath) as? BigImageCollectionViewCell
+                cell?.configure(title: movieData.title, overview: movieData.overview, review: movieData.vote, url: movieData.posterURL)
+                return cell
+            case .list(let movieData):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.id, for: indexPath) as? ListCollectionViewCell
+                cell?.configure(title: movieData.title, releaseDate: movieData.releaseDate, url: movieData.posterURL)
+                return cell
+            }
+        })
+        
+        dataSource?.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath -> UICollectionReusableView in
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderView.id, for: indexPath)
+            let section = self?.dataSource?.sectionIdentifier(for: indexPath.section)
+            
+            switch section {
+            case . horizontal(let title), .vertical(let title):
+                (header as? HeaderView)?.configure(title: title)
+            default:
+                print("Default")
+            }
+            
+            return header
+        }
+        
+    }
     
-
-
 }
 
